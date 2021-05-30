@@ -1,25 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import { Container, Col, Row, Card, Button, Form, Navbar, Modal, Table } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Index from './components/index';
+import Dashboard from './components/dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+          <Switch>
+            <div className="component">
+              <Route path="/" exact component={Index} />
+              <Route path="/dashboard" exact component={Dashboard} />
+            </div>
+          </Switch>
+       </Router>
   );
 }
+
 
 export default App;
